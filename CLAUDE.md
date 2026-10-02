@@ -10,7 +10,7 @@
 - `templates/` … HTMLとCSSのひな形。
 - `data/site.json` … 観測ログ・確率図鑑・ラッキーアイテム候補・管理人日誌・みんなの体験談。
 - `.github/workflows/build.yml` … 毎日0:05 JSTにテスト→生成→docsをコミット。
-- 公開は GitHub Pages（main ブランチの `/docs`）。
+- 公開は Cloudflare Pages（GitHub連携、main ブランチの `docs`、ビルドコマンドなし）。
 
 ## 守ること
 - 体験談は本物だけ。作り話・架空の人物の口コミは載せない。

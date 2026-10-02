@@ -11,19 +11,217 @@
       "lesson": "「当たる」と「勝てる」は別物だった。"
     }
   ],
+  "pachinko_logs": [
+    {
+      "date": "2026/10/02",
+      "balance": -24000,
+      "note": "台を変えまくり、ボーダー無視で突っ込んだ"
+    }
+  ],
   "odds": [
-    { "name": "JRAの控除率", "value": "約20〜30%（券種による）", "source": "JRA" },
-    { "name": "宝くじの還元率", "value": null, "source": null },
-    { "name": "宝くじ1等の当せん確率", "value": null, "source": null },
-    { "name": "パチンコの大当り確率", "value": null, "source": null }
+    {
+      "name": "JRA 単勝の払戻率",
+      "value": "80.0%",
+      "source": "JRA",
+      "url": "https://www.jra.go.jp/news/other/20140303.html"
+    },
+    {
+      "name": "JRA 3連単の払戻率",
+      "value": "72.5%",
+      "source": "JRA",
+      "url": "https://www.jra.go.jp/news/other/20140303.html"
+    },
+    {
+      "name": "JRA WIN5の払戻率",
+      "value": "70.0%",
+      "source": "JRA",
+      "url": "https://www.jra.go.jp/faq/pop04/3_14.html"
+    },
+    {
+      "name": "宝くじの還元率(サマージャンボ)",
+      "value": "47.3%",
+      "source": "総務省資料",
+      "url": "https://www.soumu.go.jp/main_content/001081644.pdf"
+    },
+    {
+      "name": "宝くじ1等(ハロウィンジャンボ)",
+      "value": "1,000万枚に1本",
+      "source": "宝くじ公式(1等12本/12ユニットから算出)",
+      "url": "https://www.takarakuji-official.jp/news/recent/?newsId=251001"
+    }
   ],
   "lucky_items": [
-    "財布", "ハンカチ", "腕時計", "手帳", "ボールペン", "名刺入れ", "キーケース",
-    "折りたたみ傘", "イヤホン", "マグカップ", "文庫本", "のど飴", "リップクリーム",
-    "小銭入れ", "スニーカー", "帽子", "マフラー", "メガネ拭き", "付箋", "エコバッグ"
+    "財布",
+    "ハンカチ",
+    "腕時計",
+    "手帳",
+    "ボールペン",
+    "名刺入れ",
+    "キーケース",
+    "折りたたみ傘",
+    "イヤホン",
+    "マグカップ",
+    "文庫本",
+    "のど飴",
+    "リップクリーム",
+    "小銭入れ",
+    "スニーカー",
+    "帽子",
+    "マフラー",
+    "メガネ拭き",
+    "付箋",
+    "エコバッグ"
   ],
-  "lucky_colors": ["赤", "青", "黄", "緑", "白", "黒", "紫", "橙", "金", "銀", "茶", "ピンク"],
-  "directions": ["北", "北東", "東", "南東", "南", "南西", "西", "北西"],
-  "diary": [],
-  "voices": []
+  "lucky_colors": [
+    "赤",
+    "青",
+    "黄",
+    "緑",
+    "白",
+    "黒",
+    "紫",
+    "橙",
+    "金",
+    "銀",
+    "茶",
+    "ピンク"
+  ],
+  "directions": [
+    "北",
+    "北東",
+    "東",
+    "南東",
+    "南",
+    "南西",
+    "西",
+    "北西"
+  ],
+  "diary": [
+    {
+      "date": "2026/10/02",
+      "text": "パチンコで24,000円負け。シュタインズゲート甘単発、いせれべ単発。台判断を誤り、熱くなって台を変えまくり、ボーダーを無視して突っ込んだ。",
+      "lesson": "リスク管理ができていなかった。台を変える前に、ボーダーと損切りラインを決める。",
+      "amount": -24000
+    }
+  ],
+  "fusui_actions": [
+    {
+      "text": "玄関を掃いてから水拭きする",
+      "url": "https://athome.co.jp/contents/interior-style/goodluck-entrance/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "玄関の靴を家族の人数分以内に片づける",
+      "url": "https://athome.co.jp/contents/interior-style/goodluck-entrance/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "玄関を明るくする(照明や花、小物で)",
+      "url": "https://athome.co.jp/contents/interior-style/goodluck-entrance/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "玄関マットを清潔に保つ",
+      "url": "https://athome.co.jp/contents/interior-style/goodluck-entrance/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "表札を水拭きする",
+      "url": "https://athome.co.jp/contents/interior-style/goodluck-entrance/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "濡れた傘を玄関に置きっぱなしにしない",
+      "url": "https://athome.co.jp/contents/interior-style/goodluck-entrance/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "観葉植物か生花を飾る(造花ではなく生きたもの)",
+      "url": "https://allabout.co.jp/gm/gc/482011/",
+      "source": "All About"
+    },
+    {
+      "text": "シューズボックスの中身を整理する",
+      "url": "https://allabout.co.jp/gm/gc/482011/",
+      "source": "All About"
+    },
+    {
+      "text": "トイレの床を水拭きする",
+      "url": "https://www.athome.co.jp/contents/for-buyers/buyers-kurashi/feng-shui-toilet/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "トイレのフタと扉を閉める",
+      "url": "https://www.athome.co.jp/contents/for-buyers/buyers-kurashi/feng-shui-toilet/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "トイレをこまめに換気する",
+      "url": "https://www.athome.co.jp/contents/for-buyers/buyers-kurashi/feng-shui-toilet/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "トイレの掃除用具を出しっぱなしにしない",
+      "url": "https://www.athome.co.jp/contents/for-buyers/buyers-kurashi/feng-shui-toilet/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "盛り塩を新しいものに替える(週1回が目安)",
+      "url": "https://www.athome.co.jp/contents/for-buyers/buyers-kurashi/feng-shui-toilet/",
+      "source": "アットホーム"
+    },
+    {
+      "text": "北に、財布や貴重品の定位置を決める",
+      "url": "https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/",
+      "source": "楽天"
+    },
+    {
+      "text": "西日を遮光カーテンで遮る",
+      "url": "https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/",
+      "source": "楽天"
+    },
+    {
+      "text": "北東をこまめに掃除する",
+      "url": "https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/",
+      "source": "楽天"
+    },
+    {
+      "text": "南にキラキラした小物を置く",
+      "url": "https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/",
+      "source": "楽天"
+    },
+    {
+      "text": "東に観葉植物を置く",
+      "url": "https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/",
+      "source": "楽天"
+    },
+    {
+      "text": "南西は背の低い家具で安定感を出す",
+      "url": "https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/",
+      "source": "楽天"
+    }
+  ],
+  "voice_categories": [
+    "開運アイテム",
+    "開運行動",
+    "開運スポット",
+    "風水",
+    "体験談"
+  ],
+  "form_url": "",
+  "voices": [],
+  "direction_notes": {
+    "北": "水の方角。金運・恋愛運",
+    "北東": "土の方角。不動産運・知識運・財産運",
+    "東": "木の方角。仕事運・出世運・健康運",
+    "南東": "木の方角。恋愛運・人間関係運",
+    "南": "火の方角。人気運・美容運",
+    "南西": "土の方角。健康運・家庭運・不動産運",
+    "西": "金の方角。商売運・人間関係運・金運",
+    "北西": "金の方角。社会運・事業運"
+  },
+  "direction_source": {
+    "source": "楽天",
+    "url": "https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/"
+  }
 }

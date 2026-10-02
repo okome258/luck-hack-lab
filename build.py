@@ -23,7 +23,7 @@ KAIUN = ["天赦日", "一粒万倍日", "寅の日", "己巳の日", "巳の日
 LUCKY_TAGS = {"天赦日", "一粒万倍日", "大安"}
 
 
-def _pick(seq: list[str], d: date, salt: str) -> str:
+def _pick(seq: list, d: date, salt: str):
     """日付から決まった1つを選ぶ(同じ日は何度ビルドしても同じ結果)。"""
     h = hashlib.sha256(f"{d.isoformat()}:{salt}".encode()).hexdigest()
     return seq[int(h, 16) % len(seq)]
@@ -58,38 +58,71 @@ def render(today: date, data: dict) -> str:
 
     odds_rows = []
     for o in data["odds"]:
-        if o["value"]:
-            odds_rows.append(f'<div><span>{escape(o["name"])}</span><span class="v">{escape(o["value"])}</span></div>')
-        else:
-            odds_rows.append(f'<div><span>{escape(o["name"])}</span><span class="v pending">出典確認中</span></div>')
+        # 出典(URL)が確認できた数字だけを載せる
+        if not (o.get("value") and o.get("url")):
+            continue
+        odds_rows.append(
+            f'<div><span>{escape(o["name"])} <a class="src" href="{escape(o["url"])}" '
+            f'target="_blank" rel="noopener" title="{escape(o["source"])}">出典</a></span>'
+            f'<span class="v">{escape(o["value"])}</span></div>')
 
     log = data["observation_logs"][-1]
+    pl = data.get("pachinko_logs", [])
+    total = sum(p["balance"] for p in pl)
+    pachi = ""
+    if pl:
+        cls = "loss" if total < 0 else "win"
+        pachi = (
+            f'<div class="log-row"><span class="k">パチンコ収支（{len(pl)}回分）</span>'
+            f'<span class="n {cls}">{total:+,}円</span></div>')
     log_card = (
         f'<div class="card-head"><h2 id="h-log">運の観測ログ</h2><span class="badge">{escape(log["id"])}</span></div>'
-        f'<div style="font-size:13px">{escape(log["title"])}（{log["trials"]}{escape(log["unit"])}）</div>'
-        f'<div class="note">{escape(log["period"])}</div>'
-        f'<div class="stat"><div><span class="k">回収率 </span><span class="n">{log["return_rate"]}%</span></div>'
-        f'<div><span class="k">的中率 </span><span class="n s">{log["hit_rate"]}%</span></div></div>'
+        f'<div class="note">競馬AI（複勝）{log["trials"]}{escape(log["unit"])} ・ {escape(log["period"])}</div>'
+        f'<div class="log-row"><span class="k">回収率</span><span class="n">{log["return_rate"]}%</span>'
+        f'<span class="k">的中率 {log["hit_rate"]}%</span></div>'
         f'<div class="bar" role="img" aria-label="回収率{log["return_rate"]}%(100%で収支トントン)">'
         f'<span style="width:{min(log["return_rate"], 100)}%"></span></div>'
+        f'{pachi}'
         f'<div class="note" style="margin-top:6px">{escape(log["lesson"])}</div>'
     )
+
+    fusui = _pick(data["fusui_actions"], today, "fusui")
+    fusui_html = (f'{escape(fusui["text"])} <a class="src" href="{escape(fusui["url"])}" '
+                  f'target="_blank" rel="noopener" title="{escape(fusui["source"])}">出典</a>')
+    direction = _pick(data["directions"], today, "direction")
+    dnote = data.get("direction_notes", {}).get(direction, "")
+    dsrc = data.get("direction_source")
+    direction_html = escape(direction) + (f'（{escape(dnote)}）' if dnote else "")
+    if dnote and dsrc:
+        direction_html += (f' <a class="src" href="{escape(dsrc["url"])}" target="_blank" '
+                           f'rel="noopener" title="{escape(dsrc["source"])}">出典</a>')
+
+    cats = "".join(f'<span class="chip sm">{escape(c)}</span>' for c in data.get("voice_categories", []))
+    cat_row = f'<div class="chips cats">{cats}</div>' if cats else ""
+    form_url = data.get("form_url", "")
 
     if data["voices"]:
         cards = []
         for v in data["voices"]:
             chips = "".join(_tag(v[k], True) for k in ("action", "period", "cost", "result") if v.get(k))
             cards.append(f'<article class="voice"><p>{escape(v["summary"])}</p><div class="tags" style="margin:0">{chips}</div></article>')
-        voices = f'<div class="voices">{"".join(cards)}</div>'
-        button = '<a class="btn" href="#voices">体験談を投稿する</a>'
+        voices = cat_row + f'<div class="voices">{"".join(cards)}</div>'
     else:
-        voices = '<div class="empty">投稿の受付は準備中です。始まったら、ここに体験談と「良かった体験・損した体験に多い要素」が並びます。</div>'
+        voices = cat_row + '<div class="empty">まだ投稿はありません。集まったら、ここに並び、「良かった体験・損した体験に多い要素」も集計します。</div>'
+    if form_url:
+        button = f'<a class="btn" href="{escape(form_url)}" target="_blank" rel="noopener">体験を投稿する</a>'
+    else:
         button = '<span class="btn" aria-disabled="true">投稿受付 準備中</span>'
 
     if data["diary"]:
         entries = []
         for e in sorted(data["diary"], key=lambda x: x["date"], reverse=True)[:3]:
-            score = f'運 {e["score"]:+d}' if isinstance(e.get("score"), int) else ""
+            if isinstance(e.get("amount"), int):
+                score = f'{e["amount"]:+,}円'
+            elif isinstance(e.get("score"), int):
+                score = f'運 {e["score"]:+d}'
+            else:
+                score = ""
             entries.append(
                 f'<article><div class="meta"><span>{escape(e["date"])}</span><span>{score}</span></div>'
                 f'<div>{escape(e["text"])}</div>'
@@ -110,7 +143,8 @@ def render(today: date, data: dict) -> str:
         "{{KAIUN_LIST}}": "".join(kaiun_rows),
         "{{LUCKY_ITEM}}": escape(_pick(data["lucky_items"], today, "item")),
         "{{LUCKY_COLOR}}": escape(_pick(data["lucky_colors"], today, "color")),
-        "{{LUCKY_DIRECTION}}": escape(_pick(data["directions"], today, "direction")),
+        "{{LUCKY_DIRECTION}}": direction_html,
+        "{{FUSUI}}": fusui_html,
         "{{ODDS_ROWS}}": "".join(odds_rows),
         "{{LOG_CARD}}": log_card,
         "{{VOICE_BUTTON}}": button,

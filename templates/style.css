@@ -85,4 +85,27 @@ h2 { margin: 0; font-size: 16px; font-weight: 900; }
 .diary article { border-bottom: 1px solid var(--line-soft); padding-bottom: 8px; }
 .diary .meta { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11px; color: var(--muted); }
 .diary .lesson { font-size: 12px; color: var(--teal); font-weight: 700; }
+.chip.sm { font-size: 11px; padding: 1px 9px; }
+.chips.cats { padding: 8px 0 0; }
+.odds .src { font-size: 10px; margin-left: 2px; }
+.log-row { display: flex; align-items: baseline; gap: 10px; margin: 6px 0; flex-wrap: wrap; }
+.log-row .k { font-size: 11px; color: var(--muted); }
+.log-row .n { font-family: var(--mono); font-size: 18px; font-weight: 600; }
+.log-row .n.loss { color: #B3261E; }
+.log-row .n.win { color: var(--teal); }
+.tag.lucky { color: #14181F; }
+
+/* 見る人の端末の設定(ダークモード)に自動で合わせる */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F1217; --card: #171B22; --ink: #EDEFF3; --sub: #C5CBD5; --muted: #98A1AE;
+    --line: #2A303A; --line-soft: #232831; --teal: #4FC3B8; --teal-soft: #14302D;
+    --teal-line: #245A54; --gray-tag: #2A303A; --loss-soft: #3A1F1F;
+  }
+  a:hover { color: #8BE0D7; }
+  .btn { color: #14181F; }
+  .btn[aria-disabled="true"] { background: #4A525F; color: #C5CBD5; }
+  .log-row .n.loss { color: #FF8A80; }
+  .empty { border-color: #3A414C; }
+}
 footer { font-size: 11px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 20px; justify-content: space-between; padding-bottom: 24px; }
