@@ -1,0 +1,281 @@
+[
+ {
+  "date": "2026-10-01",
+  "weekday": "木",
+  "rokuyo": "仏滅",
+  "kanshi": "戊申",
+  "kyureki": "8月21日",
+  "kichijitsu": [
+   "天赦日",
+   "一粒万倍日"
+  ]
+ },
+ {
+  "date": "2026-10-02",
+  "weekday": "金",
+  "rokuyo": "大安",
+  "kanshi": "己酉",
+  "kyureki": "8月22日",
+  "kichijitsu": [
+   "大安"
+  ]
+ },
+ {
+  "date": "2026-10-03",
+  "weekday": "土",
+  "rokuyo": "赤口",
+  "kanshi": "庚戌",
+  "kyureki": "8月23日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-04",
+  "weekday": "日",
+  "rokuyo": "先勝",
+  "kanshi": "辛亥",
+  "kyureki": "8月24日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-05",
+  "weekday": "月",
+  "rokuyo": "友引",
+  "kanshi": "壬子",
+  "kyureki": "8月25日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-06",
+  "weekday": "火",
+  "rokuyo": "先負",
+  "kanshi": "癸丑",
+  "kyureki": "8月26日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-07",
+  "weekday": "水",
+  "rokuyo": "仏滅",
+  "kanshi": "甲寅",
+  "kyureki": "8月27日",
+  "kichijitsu": [
+   "寅の日"
+  ]
+ },
+ {
+  "date": "2026-10-08",
+  "weekday": "木",
+  "rokuyo": "大安",
+  "kanshi": "乙卯",
+  "kyureki": "8月28日",
+  "kichijitsu": [
+   "大安"
+  ]
+ },
+ {
+  "date": "2026-10-09",
+  "weekday": "金",
+  "rokuyo": "赤口",
+  "kanshi": "丙辰",
+  "kyureki": "8月29日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-10",
+  "weekday": "土",
+  "rokuyo": "先勝",
+  "kanshi": "丁巳",
+  "kyureki": "8月30日",
+  "kichijitsu": [
+   "巳の日"
+  ]
+ },
+ {
+  "date": "2026-10-11",
+  "weekday": "日",
+  "rokuyo": "先負",
+  "kanshi": "戊午",
+  "kyureki": "9月1日",
+  "kichijitsu": [
+   "一粒万倍日"
+  ]
+ },
+ {
+  "date": "2026-10-12",
+  "weekday": "月",
+  "rokuyo": "仏滅",
+  "kanshi": "己未",
+  "kyureki": "9月2日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-13",
+  "weekday": "火",
+  "rokuyo": "大安",
+  "kanshi": "庚申",
+  "kyureki": "9月3日",
+  "kichijitsu": [
+   "大安"
+  ]
+ },
+ {
+  "date": "2026-10-14",
+  "weekday": "水",
+  "rokuyo": "赤口",
+  "kanshi": "辛酉",
+  "kyureki": "9月4日",
+  "kichijitsu": [
+   "一粒万倍日"
+  ]
+ },
+ {
+  "date": "2026-10-15",
+  "weekday": "木",
+  "rokuyo": "先勝",
+  "kanshi": "壬戌",
+  "kyureki": "9月5日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-16",
+  "weekday": "金",
+  "rokuyo": "友引",
+  "kanshi": "癸亥",
+  "kyureki": "9月6日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-17",
+  "weekday": "土",
+  "rokuyo": "先負",
+  "kanshi": "甲子",
+  "kyureki": "9月7日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-18",
+  "weekday": "日",
+  "rokuyo": "仏滅",
+  "kanshi": "乙丑",
+  "kyureki": "9月8日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-19",
+  "weekday": "月",
+  "rokuyo": "大安",
+  "kanshi": "丙寅",
+  "kyureki": "9月9日",
+  "kichijitsu": [
+   "寅の日",
+   "大安"
+  ]
+ },
+ {
+  "date": "2026-10-20",
+  "weekday": "火",
+  "rokuyo": "赤口",
+  "kanshi": "丁卯",
+  "kyureki": "9月10日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-21",
+  "weekday": "水",
+  "rokuyo": "先勝",
+  "kanshi": "戊辰",
+  "kyureki": "9月11日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-22",
+  "weekday": "木",
+  "rokuyo": "友引",
+  "kanshi": "己巳",
+  "kyureki": "9月12日",
+  "kichijitsu": [
+   "己巳の日"
+  ]
+ },
+ {
+  "date": "2026-10-23",
+  "weekday": "金",
+  "rokuyo": "先負",
+  "kanshi": "庚午",
+  "kyureki": "9月13日",
+  "kichijitsu": [
+   "一粒万倍日"
+  ]
+ },
+ {
+  "date": "2026-10-24",
+  "weekday": "土",
+  "rokuyo": "仏滅",
+  "kanshi": "辛未",
+  "kyureki": "9月14日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-25",
+  "weekday": "日",
+  "rokuyo": "大安",
+  "kanshi": "壬申",
+  "kyureki": "9月15日",
+  "kichijitsu": [
+   "大安"
+  ]
+ },
+ {
+  "date": "2026-10-26",
+  "weekday": "月",
+  "rokuyo": "赤口",
+  "kanshi": "癸酉",
+  "kyureki": "9月16日",
+  "kichijitsu": [
+   "一粒万倍日"
+  ]
+ },
+ {
+  "date": "2026-10-27",
+  "weekday": "火",
+  "rokuyo": "先勝",
+  "kanshi": "甲戌",
+  "kyureki": "9月17日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-28",
+  "weekday": "水",
+  "rokuyo": "友引",
+  "kanshi": "乙亥",
+  "kyureki": "9月18日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-29",
+  "weekday": "木",
+  "rokuyo": "先負",
+  "kanshi": "丙子",
+  "kyureki": "9月19日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-30",
+  "weekday": "金",
+  "rokuyo": "仏滅",
+  "kanshi": "丁丑",
+  "kyureki": "9月20日",
+  "kichijitsu": []
+ },
+ {
+  "date": "2026-10-31",
+  "weekday": "土",
+  "rokuyo": "大安",
+  "kanshi": "戊寅",
+  "kyureki": "9月21日",
+  "kichijitsu": [
+   "寅の日",
+   "大安"
+  ]
+ }
+]

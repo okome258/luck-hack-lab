@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>本気の「運」攻略戦略｜信じる前に、確かめる。</title>
+<meta name="description" content="万年不運な男が、運を論理で攻略する実験室。今日の暦(六曜・一粒万倍日・天赦日)、確率、運の観測ログ、みんなの開運体験の分析を毎日更新。">
+<meta property="og:title" content="本気の「運」攻略戦略">
+<meta property="og:description" content="信じる前に、確かめる。運をデータとAIで観測する実験室。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav class="wrap nav" aria-label="ページ内">
+    <a href="#today">今日の運</a>
+    <a href="#odds">確率図鑑</a>
+    <a href="#voices">みんなの体験談</a>
+    <a href="#diary">管理人日誌</a>
+  </nav>
+  <div class="wrap hero">
+    <div class="hero-title">
+      <div class="eyebrow">LUCK HACK LAB</div>
+      <h1>本気の「運」攻略戦略</h1>
+      <div class="motto">信じる前に、確かめる。</div>
+    </div>
+    <p class="concept">
+      万年、運が悪い。努力で何者かになろうとしたが、簡単ではなかった。知り合いのあいつは幸せそうで、自分だけが暗闇の中にいる。<br>
+      <strong>だから決めた。「運」を攻略して、幸せになる。</strong>引き寄せの法則を、祈りではなく論理で捕まえにいく。
+    </p>
+  </div>
+  <div class="wrap chips">
+    <span class="chip">01 運＝結果−期待値で測る</span>
+    <span class="chip">02 データとAIで観測</span>
+    <span class="chip">03 ギャンブルで検証</span>
+    <span class="chip">04 勝ちも負けも全部公開</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="grid4" id="today">
+    <section class="card" aria-labelledby="h-koyomi">
+      <div class="card-head"><h2 id="h-koyomi">今日の暦</h2><span class="badge">毎日自動更新</span></div>
+      <div class="big-date">{{TODAY_DATE}}</div>
+      <div class="tags">{{TODAY_TAGS}}</div>
+      <div class="note">旧暦 {{TODAY_KYUREKI}} ・ 日の干支 {{TODAY_KANSHI}}</div>
+      <div class="divider" style="margin-top:8px">
+        <div class="note" style="font-weight:700">これからの開運日（{{MONTH_LABEL}}）</div>
+        <ul class="kaiun-list">{{KAIUN_LIST}}</ul>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="h-lucky">
+      <div class="card-head"><h2 id="h-lucky">今日のラッキーアイテム</h2><span class="badge">日替わり</span></div>
+      <div class="item-name">{{LUCKY_ITEM}}</div>
+      <div class="note" style="margin:4px 0 10px">ラッキーカラー {{LUCKY_COLOR}} ・ 方角 {{LUCKY_DIRECTION}}</div>
+      <div class="divider note">日付から機械的に選んでいます。持った日と持たない日の運スコアを記録して、本当に効くかを検証中。</div>
+    </section>
+
+    <section class="card" id="odds" aria-labelledby="h-odds">
+      <div class="card-head"><h2 id="h-odds">確率図鑑</h2></div>
+      <div class="note">運を語る前に、胴元の取り分を知る。</div>
+      <div class="odds">{{ODDS_ROWS}}</div>
+    </section>
+
+    <section class="card" aria-labelledby="h-log">
+      {{LOG_CARD}}
+    </section>
+  </div>
+
+  <div class="row2">
+    <section class="card" id="voices" aria-labelledby="h-voices">
+      <div class="card-head" style="flex-wrap:wrap">
+        <div>
+          <h2 id="h-voices">みんなの開運体験</h2>
+          <div class="note">投稿された体験を、AIが要素(行動・期間・費用・結果)に分解して集計します。掲載は管理人の承認後。</div>
+        </div>
+        {{VOICE_BUTTON}}
+      </div>
+      {{VOICES}}
+    </section>
+
+    <section class="card" id="diary" aria-labelledby="h-diary">
+      <h2 id="h-diary">管理人の不運日誌</h2>
+      {{DIARY}}
+    </section>
+  </div>
+
+  <footer>
+    <span>暦は公開されたルールから自動計算しています(吉凶に科学的な根拠はありません)。記録は個人の結果で、勝ちを保証しません。ギャンブルは予算の上限を決めて。広告を載せる場合はPRと明記します。</span>
+    <span>最終更新 {{UPDATED_AT}} ・ © 本気の「運」攻略戦略</span>
+  </footer>
+</main>
+</body>
+</html>
