@@ -10,7 +10,7 @@
 - `templates/` … HTMLとCSSのひな形。
 - `data/site.json` … 観測ログ・確率図鑑・ラッキーアイテム候補・管理人日誌・みんなの体験談。
 - `.github/workflows/build.yml` … 毎日0:05 JSTにテスト→生成→docsをコミット。
-- 公開は Cloudflare Pages（GitHub連携、main ブランチの `docs`、ビルドコマンドなし）。
+- 公開は Cloudflare（GitHub連携、main ブランチの `docs`、ビルドコマンドなし）。正式URLは https://luck.otokuest.com （旧 luck-hack-lab.okomen.workers.dev はページ内のスクリプトで正式URLへ移す）。
 
 ## 守ること
 - 体験談は本物だけ。作り話・架空の人物の口コミは載せない。

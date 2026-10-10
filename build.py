@@ -19,6 +19,7 @@ import koyomi
 
 ROOT = Path(__file__).parent
 DOCS = ROOT / "docs"
+SITE_URL = "https://luck.otokuest.com"  # 正式URL(Cloudflare のカスタムドメイン)
 KAIUN = ["天赦日", "一粒万倍日", "寅の日", "己巳の日", "巳の日"]  # 開運日として並べる順
 LUCKY_TAGS = {"天赦日", "一粒万倍日", "大安"}
 
@@ -167,6 +168,11 @@ def main() -> None:
     month = koyomi.month_days(today.year, today.month)
     (DOCS / "koyomi.json").write_text(json.dumps(month, ensure_ascii=False, indent=1), encoding="utf-8")
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
+    (DOCS / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n", encoding="utf-8")
+    (DOCS / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"  <url><loc>{SITE_URL}/</loc><lastmod>{today}</lastmod><changefreq>daily</changefreq></url>\n</urlset>\n",
+        encoding="utf-8")
     print(f"生成しました: {today} → docs/index.html")
 
 
