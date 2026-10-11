@@ -76,8 +76,9 @@ def sun_longitude(jd_ut: float) -> float:
 
 # ---------- 新月 ----------
 
-def new_moon_jd(k: int) -> float:
-    """k番目の新月のユリウス日(UT)。k=0は2000年1月6日ごろ。"""
+def new_moon_jd(k: float) -> float:
+    """k番目の新月のユリウス日(UT)。k=0は2000年1月6日ごろ。kに0.5を足すと満月。"""
+    full = (k % 1) != 0
     t = k / 1236.85
     jde = (2451550.09766 + 29.530588861 * k + 0.00015437 * t ** 2
            - 0.000000150 * t ** 3 + 0.00000000073 * t ** 4)
@@ -90,9 +91,12 @@ def new_moon_jd(k: int) -> float:
           + 0.000000011 * t ** 4)
     om = r(124.7746 - 1.56375588 * k + 0.0020672 * t ** 2 + 0.00000215 * t ** 3)
     s = math.sin
-    corr = (-0.40720 * s(mp) + 0.17241 * e * s(m) + 0.01608 * s(2 * mp)
-            + 0.01039 * s(2 * f) + 0.00739 * e * s(mp - m) - 0.00514 * e * s(mp + m)
-            + 0.00208 * e * e * s(2 * m) - 0.00111 * s(mp - 2 * f)
+    # 新月と満月で係数が少し違う(Meeus 表49.A)
+    c = ((-0.40614, 0.17302, 0.01614, 0.01043, 0.00734, -0.00515, 0.00209) if full else
+         (-0.40720, 0.17241, 0.01608, 0.01039, 0.00739, -0.00514, 0.00208))
+    corr = (c[0] * s(mp) + c[1] * e * s(m) + c[2] * s(2 * mp)
+            + c[3] * s(2 * f) + c[4] * e * s(mp - m) + c[5] * e * s(mp + m)
+            + c[6] * e * e * s(2 * m) - 0.00111 * s(mp - 2 * f)
             - 0.00057 * s(mp + 2 * f) + 0.00056 * e * s(2 * mp + m)
             - 0.00042 * s(3 * mp) + 0.00042 * e * s(m + 2 * f)
             + 0.00038 * e * s(m - 2 * f) - 0.00024 * e * s(2 * mp - m)
@@ -212,6 +216,134 @@ def kichijitsu(d: date) -> list[str]:
     return names
 
 
+# ---------- 追加の吉日・凶日 ----------
+
+# 大明日の日の干支(25日)。bestcalendar.jp の2026年10〜12月の表から確認。
+DAIMYO = set("己巳 庚午 辛未 壬申 癸酉 丁丑 己卯 壬午 甲申 丁亥 壬辰 乙未 壬寅 "
+             "甲辰 乙巳 丙午 丁未 己酉 庚戌 辛亥 丙辰 戊午 己未 庚申 辛酉".split())
+# 不成就日: 旧暦の月ごとに、その旧暦日(8日おき)
+FUJOJU = {1: 3, 7: 3, 2: 2, 8: 2, 3: 1, 9: 1, 4: 4, 10: 4, 5: 5, 11: 5, 6: 6, 12: 6}
+# 三隣亡: 節月ごとの日支
+SANRINBO = {1: "亥", 4: "亥", 7: "亥", 10: "亥", 2: "寅", 5: "寅", 8: "寅", 11: "寅",
+            3: "午", 6: "午", 9: "午", 12: "午"}
+# 八専: 壬子〜癸亥の12日のうち、間日(癸丑・丙辰・戊午・壬戌)を除く8日
+HASSEN = set("壬子 甲寅 乙卯 丁巳 己未 庚申 辛酉 癸亥".split())
+SEKKI_NAMES = ["春分", "清明", "穀雨", "立夏", "小満", "芒種", "夏至", "小暑", "大暑", "立秋", "処暑", "白露",
+               "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至", "小寒", "大寒", "立春", "雨水", "啓蟄"]
+
+
+def is_fujoju(d: date) -> bool:
+    month, day, _ = kyureki(d)
+    return day % 8 == FUJOJU[month] % 8
+
+
+def is_doyo(d: date) -> bool:
+    """土用(立春・立夏・立秋・立冬の前の約18日)。土用の入りの日を含む。"""
+    lam = sun_longitude(jst_midnight_jd(d + timedelta(days=1)))
+    return any(start <= lam < start + 18 for start in (27, 117, 207, 297))
+
+
+def sekki_today(d: date) -> str | None:
+    """その日に二十四節気が始まるなら、その名前。"""
+    before = sun_longitude(jst_midnight_jd(d))
+    after = sun_longitude(jst_midnight_jd(d + timedelta(days=1)))
+    if math.floor(before / 15) != math.floor(after / 15):
+        return SEKKI_NAMES[math.floor(after / 15) % 24]
+    return None
+
+
+def kyojitsu(d: date) -> list[str]:
+    """その日に当たる凶日・注意日の名前の一覧(六曜は除く)。"""
+    ks = day_kanshi(d)
+    names = []
+    if is_fujoju(d):
+        names.append("不成就日")
+    if ks[1] == SANRINBO[sekki_month(d)]:
+        names.append("三隣亡")
+    if ks in HASSEN:
+        names.append("八専")
+    if is_doyo(d):
+        names.append("土用")
+    return names
+
+
+def kichijitsu_extra(d: date) -> list[str]:
+    """kichijitsu() 以外の吉日(甲子の日・大明日)。"""
+    ks = day_kanshi(d)
+    names = []
+    if ks == "甲子":
+        names.append("甲子の日")
+    if ks in DAIMYO:
+        names.append("大明日")
+    return names
+
+
+# ---------- 月の満ち欠け ----------
+
+@lru_cache(maxsize=None)
+def full_moon_date(k: int) -> date:
+    """k番目の新月の次の満月の日付(JST)。"""
+    return jst_date_from_jd(new_moon_jd(k + 0.5))
+
+
+def moon_phase(d: date) -> dict:
+    """{"age": 月齢(その日の正午), "event": "新月"/"満月"/None}。"""
+    k = lunation_start(d)
+    noon = jd_from_datetime_utc(datetime(d.year, d.month, d.day, 12, tzinfo=JST))
+    age = noon - new_moon_jd(k)
+    event = None
+    if new_moon_date(k) == d:
+        event = "新月"
+    elif full_moon_date(k) == d or full_moon_date(k - 1) == d:
+        event = "満月"
+    return {"age": round(age, 1), "event": event}
+
+
+# ---------- 水星逆行 ----------
+# JPLの近似軌道要素(1800〜2050年用)。a, e, I, L, 近日点経度, 昇交点経度 と1世紀あたりの変化
+_ELEMENTS = {
+    "mercury": ((0.38709927, 0.20563593, 7.00497902, 252.25032350, 77.45779628, 48.33076593),
+                (0.00000037, 0.00001906, -0.00594749, 149472.67411175, 0.16047689, -0.12534081)),
+    "earth": ((1.00000261, 0.01671123, -0.00001531, 100.46457166, 102.93768193, 0.0),
+              (0.00000562, -0.00004392, -0.01294668, 35999.37244981, 0.32327364, 0.0)),
+}
+
+
+def _helio(planet: str, t: float) -> tuple[float, float, float]:
+    base, rate = _ELEMENTS[planet]
+    a, e, inc, lon, peri, node = (b + r * t for b, r in zip(base, rate))
+    m = math.radians((lon - peri) % 360)
+    ea = m
+    for _ in range(10):  # ケプラー方程式
+        ea -= (ea - e * math.sin(ea) - m) / (1 - e * math.cos(ea))
+    x = a * (math.cos(ea) - e)
+    y = a * math.sqrt(1 - e * e) * math.sin(ea)
+    w, n, i = math.radians(peri - node), math.radians(node), math.radians(inc)
+    cw, sw, cn, sn, ci, si = math.cos(w), math.sin(w), math.cos(n), math.sin(n), math.cos(i), math.sin(i)
+    return ((cw * cn - sw * sn * ci) * x + (-sw * cn - cw * sn * ci) * y,
+            (cw * sn + sw * cn * ci) * x + (-sw * sn + cw * cn * ci) * y,
+            (sw * si) * x + (cw * si) * y)
+
+
+def mercury_longitude(jd_ut: float) -> float:
+    """地球から見た水星の黄経(度)。"""
+    t = (jd_ut + DELTA_T_DAYS - 2451545.0) / 36525.0
+    mx, my, _ = _helio("mercury", t)
+    ex, ey, _ = _helio("earth", t)
+    return math.degrees(math.atan2(my - ey, mx - ex)) % 360
+
+
+def _mercury_retro_at(jd_ut: float) -> bool:
+    diff = (mercury_longitude(jd_ut + 0.02) - mercury_longitude(jd_ut - 0.02) + 540) % 360 - 180
+    return diff < 0
+
+
+def mercury_retrograde(d: date) -> bool:
+    """その日のうち一瞬でも水星が逆行していれば True。"""
+    start = jst_midnight_jd(d)
+    return _mercury_retro_at(start) or _mercury_retro_at(start + 1)
+
+
 def day_info(d: date) -> dict:
     month, day, leap = kyureki(d)
     return {
@@ -220,7 +352,11 @@ def day_info(d: date) -> dict:
         "rokuyo": rokuyo(d),
         "kanshi": day_kanshi(d),
         "kyureki": f"{'閏' if leap else ''}{month}月{day}日",
-        "kichijitsu": kichijitsu(d),
+        "kichijitsu": kichijitsu(d) + kichijitsu_extra(d),
+        "kyojitsu": kyojitsu(d),
+        "moon": moon_phase(d),
+        "mercury_retrograde": mercury_retrograde(d),
+        "sekki": sekki_today(d),
     }
 
 

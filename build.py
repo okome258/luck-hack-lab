@@ -16,6 +16,7 @@ from html import escape
 from pathlib import Path
 
 import koyomi
+import score
 
 ROOT = Path(__file__).parent
 DOCS = ROOT / "docs"
@@ -46,9 +47,84 @@ def upcoming_kaiun(today: date, limit: int = 6) -> list[dict]:
     return out
 
 
+def _stars(n: int) -> str:
+    return f'<span class="stars" aria-label="5段階中{n}">{"★" * n}<span class="off">{"★" * (5 - n)}</span></span>'
+
+
+def _md(d: date) -> str:
+    return f"{d.month}/{d.day}({'月火水木金土日'[d.weekday()]})"
+
+
+def score_card(today: date, data: dict) -> str:
+    """今日の運 重なりスコアのカード。"""
+    s = score.day_score(today)
+    info = koyomi.day_info(today)
+    chips = "".join(f'<span class="tag lucky">{escape(n)} +{score.WEIGHTS[n]}</span>' for n in s["plus"])
+    chips += "".join(f'<span class="tag minus">{escape(n)} {score.WEIGHTS[n]}</span>' for n in s["minus"])
+    if not chips:
+        chips = '<span class="tag">特別な暦注なし</span>'
+
+    actions = list(s["actions"])
+    if s["score"] < 0 or not actions:
+        # 守りの日は、まず足元を整える(風水の言い伝え)
+        actions.insert(0, _pick(data["fusui_actions"], today, "fusui")["text"])
+    acts = "".join(f"<li>{escape(a)}</li>" for a in actions[:3])
+    cauts = "".join(f"<li>{escape(c)}</li>" for c in s["cautions"])
+
+    moon = info["moon"]
+    sky = [f'月齢 {moon["age"]}' + (f'（{moon["event"]}）' if moon["event"] else "")]
+    end = score.mercury_retro_end(today)
+    if end:
+        sky.append(f"水星逆行中（〜{_md(end)}）")
+    if info["sekki"]:
+        sky.append(f"今日から{info['sekki']}")
+
+    best = []
+    for r in score.best_days(today):
+        label = "今日" if r["date"] == today else _md(r["date"])
+        best.append(f'<li><span class="d">{label}</span>{_stars(r["stars"])}'
+                    f'<span class="why">{escape("・".join(r["plus"][:3]))}</span></li>')
+    best_html = "".join(best) or '<li class="note">30日以内にプラスの日はありません</li>'
+
+    weights = "".join(
+        f'<span class="w {"neg" if v < 0 else ""}">{escape(k)} {v:+d}</span>'
+        for k, v in sorted(score.WEIGHTS.items(), key=lambda kv: -kv[1]) if v != 0)
+
+    return f"""
+    <section class="card score-card" aria-labelledby="h-score">
+      <div class="card-head"><h2 id="h-score">今日の運 重なりスコア</h2><span class="badge">毎日自動更新</span></div>
+      <div class="score-grid">
+        <div>
+          <div class="score-top">
+            <div class="score-num mono">{s["score"]:+d}</div>
+            <div>{_stars(s["stars"])}<div class="score-label">{escape(s["label"])}</div></div>
+          </div>
+          <div class="tags">{chips}</div>
+          <div class="note">{escape(" ・ ".join(sky))}</div>
+        </div>
+        <div>
+          <div class="sub-h">今日やるといいこと</div>
+          <ol class="acts">{acts}</ol>
+          {f'<div class="sub-h">控えたいこと</div><ul class="cauts">{cauts}</ul>' if cauts else ""}
+        </div>
+        <div>
+          <div class="sub-h">これから30日の勝負日 TOP5</div>
+          <ul class="best">{best_html}</ul>
+        </div>
+      </div>
+      <details class="weights">
+        <summary>点数のつけ方（全部公開）</summary>
+        <div class="note" style="margin:6px 0">吉日・六曜・凶日・月の満ち欠け・水星逆行の点数を足しています。凶日はマイナスなので「一粒万倍日だけど不成就日」は打ち消し合います。点数は言い伝えでの格の高さから管理人が決めた目安です。</div>
+        <div class="wlist">{weights}</div>
+        <div class="note" style="margin-top:6px">★5＝8点以上 ／ ★4＝5〜7 ／ ★3＝2〜4 ／ ★2＝0〜1 ／ ★1＝マイナス</div>
+      </details>
+    </section>"""
+
+
 def render(today: date, data: dict) -> str:
     info = koyomi.day_info(today)
-    tags = [_tag(info["rokuyo"])] + [_tag(n) for n in info["kichijitsu"] if n != "大安"]
+    tags = ([_tag(info["rokuyo"])] + [_tag(n) for n in info["kichijitsu"] if n != "大安"]
+            + [f'<span class="tag minus">{escape(n)}</span>' for n in info["kyojitsu"]])
 
     kaiun_rows = []
     for row in upcoming_kaiun(today):
@@ -136,6 +212,7 @@ def render(today: date, data: dict) -> str:
     html = (ROOT / "templates" / "index.html").read_text(encoding="utf-8")
     now = datetime.now(koyomi.JST)
     repl = {
+        "{{SCORE_CARD}}": score_card(today, data),
         "{{TODAY_DATE}}": f"{today:%Y/%m/%d}（{info['weekday']}）",
         "{{TODAY_TAGS}}": "".join(tags),
         "{{TODAY_KYUREKI}}": info["kyureki"],

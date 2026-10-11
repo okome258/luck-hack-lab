@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>本気の「運」攻略戦略｜信じる前に、確かめる。</title>
-<meta name="description" content="万年不運な男が、運を論理で攻略する実験室。今日の暦(六曜・一粒万倍日・天赦日)、確率、運の観測ログ、みんなの開運体験の分析を毎日更新。">
+<meta name="description" content="万年不運な男が、運を論理で攻略する実験室。今日の運の重なりスコア(天赦日・一粒万倍日・六曜・不成就日・新月満月・水星逆行)、確率、運の観測ログ、みんなの開運体験の分析を毎日更新。">
 <meta property="og:title" content="本気の「運」攻略戦略">
 <meta property="og:description" content="信じる前に、確かめる。運をデータとAIで観測する実験室。">
 <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
 <body>
 <header>
   <nav class="wrap nav" aria-label="ページ内">
-    <a href="#today">今日の運</a>
+    <a href="#today">今日の運スコア</a>
     <a href="#odds">確率図鑑</a>
     <a href="#voices">みんなの体験談</a>
     <a href="#diary">管理人日誌</a>
@@ -44,23 +44,52 @@
 </header>
 
 <main class="wrap">
-  <div class="grid4" id="today">
+  <div id="today">
+    <section class="card score-card" aria-labelledby="h-score">
+      <div class="card-head"><h2 id="h-score">今日の運 重なりスコア</h2><span class="badge">毎日自動更新</span></div>
+      <div class="score-grid">
+        <div>
+          <div class="score-top">
+            <div class="score-num mono">-2</div>
+            <div><span class="stars" aria-label="5段階中1">★<span class="off">★★★★</span></span><div class="score-label">守りの日</div></div>
+          </div>
+          <div class="tags"><span class="tag lucky">大明日 +1</span><span class="tag minus">八専 -1</span><span class="tag minus">仏滅 -2</span></div>
+          <div class="note">月齢 1.5</div>
+        </div>
+        <div>
+          <div class="sub-h">今日やるといいこと</div>
+          <ol class="acts"><li>玄関の靴を家族の人数分以内に片づける</li><li>引っ越し・旅行など、外へ向かうこと</li></ol>
+          <div class="sub-h">控えたいこと</div><ul class="cauts"><li>大事な決めごとは慎重に</li><li>新しいことより、片づけ・整理に向く日</li></ul>
+        </div>
+        <div>
+          <div class="sub-h">これから30日の勝負日 TOP5</div>
+          <ul class="best"><li><span class="d">10/22(木)</span><span class="stars" aria-label="5段階中3">★★★<span class="off">★★</span></span><span class="why">己巳の日・大明日・友引</span></li><li><span class="d">10/13(火)</span><span class="stars" aria-label="5段階中3">★★★<span class="off">★★</span></span><span class="why">大安・大明日</span></li><li><span class="d">10/14(水)</span><span class="stars" aria-label="5段階中3">★★★<span class="off">★★</span></span><span class="why">一粒万倍日・大明日</span></li><li><span class="d">10/17(土)</span><span class="stars" aria-label="5段階中3">★★★<span class="off">★★</span></span><span class="why">甲子の日</span></li><li><span class="d">10/23(金)</span><span class="stars" aria-label="5段階中3">★★★<span class="off">★★</span></span><span class="why">一粒万倍日・大明日</span></li></ul>
+        </div>
+      </div>
+      <details class="weights">
+        <summary>点数のつけ方（全部公開）</summary>
+        <div class="note" style="margin:6px 0">吉日・六曜・凶日・月の満ち欠け・水星逆行の点数を足しています。凶日はマイナスなので「一粒万倍日だけど不成就日」は打ち消し合います。点数は言い伝えでの格の高さから管理人が決めた目安です。</div>
+        <div class="wlist"><span class="w ">天赦日 +5</span><span class="w ">一粒万倍日 +3</span><span class="w ">己巳の日 +3</span><span class="w ">寅の日 +2</span><span class="w ">巳の日 +2</span><span class="w ">甲子の日 +2</span><span class="w ">新月 +2</span><span class="w ">大安 +2</span><span class="w ">大明日 +1</span><span class="w ">満月 +1</span><span class="w ">友引 +1</span><span class="w neg">赤口 -1</span><span class="w neg">八専 -1</span><span class="w neg">土用 -1</span><span class="w neg">三隣亡 -1</span><span class="w neg">水星逆行 -1</span><span class="w neg">仏滅 -2</span><span class="w neg">不成就日 -3</span></div>
+        <div class="note" style="margin-top:6px">★5＝8点以上 ／ ★4＝5〜7 ／ ★3＝2〜4 ／ ★2＝0〜1 ／ ★1＝マイナス</div>
+      </details>
+    </section></div>
+  <div class="grid4">
     <section class="card" aria-labelledby="h-koyomi">
       <div class="card-head"><h2 id="h-koyomi">今日の暦</h2><span class="badge">毎日自動更新</span></div>
-      <div class="big-date">2026/10/11（日）</div>
-      <div class="tags"><span class="tag">先負</span><span class="tag lucky">一粒万倍日</span></div>
-      <div class="note">旧暦 9月1日 ・ 日の干支 戊午</div>
+      <div class="big-date">2026/10/12（月）</div>
+      <div class="tags"><span class="tag">仏滅</span><span class="tag">大明日</span><span class="tag minus">八専</span></div>
+      <div class="note">旧暦 9月2日 ・ 日の干支 己未</div>
       <div class="divider" style="margin-top:8px">
         <div class="note" style="font-weight:700">これからの開運日（10月〜）</div>
-        <ul class="kaiun-list"><li><span class="d">今日</span><span class="tag lucky sm">一粒万倍日</span></li><li><span class="d">10/14(水)</span><span class="tag lucky sm">一粒万倍日</span></li><li><span class="d">10/19(月)</span><span class="tag sm">寅の日</span></li><li><span class="d">10/22(木)</span><span class="tag sm">己巳の日</span></li><li><span class="d">10/23(金)</span><span class="tag lucky sm">一粒万倍日</span></li><li><span class="d">10/26(月)</span><span class="tag lucky sm">一粒万倍日</span></li></ul>
+        <ul class="kaiun-list"><li><span class="d">10/14(水)</span><span class="tag lucky sm">一粒万倍日</span></li><li><span class="d">10/19(月)</span><span class="tag sm">寅の日</span></li><li><span class="d">10/22(木)</span><span class="tag sm">己巳の日</span></li><li><span class="d">10/23(金)</span><span class="tag lucky sm">一粒万倍日</span></li><li><span class="d">10/26(月)</span><span class="tag lucky sm">一粒万倍日</span></li><li><span class="d">10/31(土)</span><span class="tag sm">寅の日</span></li></ul>
       </div>
     </section>
 
     <section class="card" aria-labelledby="h-lucky">
       <div class="card-head"><h2 id="h-lucky">今日のラッキーアイテム</h2><span class="badge">日替わり</span></div>
-      <div class="item-name">マグカップ</div>
-      <div class="note" style="margin:4px 0 10px">ラッキーカラー 金 ・ 方角 南西（土の方角。健康運・家庭運・不動産運） <a class="src" href="https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/" target="_blank" rel="noopener" title="楽天">出典</a></div>
-      <div class="note"><strong>今日の風水</strong> 玄関を明るくする(照明や花、小物で) <a class="src" href="https://athome.co.jp/contents/interior-style/goodluck-entrance/" target="_blank" rel="noopener" title="アットホーム">出典</a>（言い伝え）</div>
+      <div class="item-name">名刺入れ</div>
+      <div class="note" style="margin:4px 0 10px">ラッキーカラー 白 ・ 方角 北西（金の方角。社会運・事業運） <a class="src" href="https://event.rakuten.co.jp/incentive/hikkoshi/fortune/2022/fengshui_bearing_color/" target="_blank" rel="noopener" title="楽天">出典</a></div>
+      <div class="note"><strong>今日の風水</strong> 玄関の靴を家族の人数分以内に片づける <a class="src" href="https://athome.co.jp/contents/interior-style/goodluck-entrance/" target="_blank" rel="noopener" title="アットホーム">出典</a>（言い伝え）</div>
       <div class="divider note" style="margin-top:8px">どれも日付から機械的に選んでいます(占いの結果ではありません)。実行した日と、しなかった日の運スコアを記録して、本当に効くかを検証中。</div>
     </section>
 
@@ -95,7 +124,7 @@
 
   <footer>
     <span>暦は公開されたルールから自動計算しています(吉凶に科学的な根拠はありません)。記録は個人の結果で、勝ちを保証しません。ギャンブルは予算の上限を決めて。広告を載せる場合はPRと明記します。</span>
-    <span>最終更新 2026/10/11 04:08 ・ © 本気の「運」攻略戦略</span>
+    <span>最終更新 2026/10/12 02:32 ・ © 本気の「運」攻略戦略</span>
   </footer>
 </main>
 </body>

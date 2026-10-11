@@ -8,7 +8,14 @@
   "kichijitsu": [
    "天赦日",
    "一粒万倍日"
-  ]
+  ],
+  "kyojitsu": [],
+  "moon": {
+   "age": 20.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-02",
@@ -17,8 +24,16 @@
   "kanshi": "己酉",
   "kyureki": "8月22日",
   "kichijitsu": [
-   "大安"
-  ]
+   "大安",
+   "大明日"
+  ],
+  "kyojitsu": [],
+  "moon": {
+   "age": 21.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-03",
@@ -26,7 +41,16 @@
   "rokuyo": "赤口",
   "kanshi": "庚戌",
   "kyureki": "8月23日",
-  "kichijitsu": []
+  "kichijitsu": [
+   "大明日"
+  ],
+  "kyojitsu": [],
+  "moon": {
+   "age": 22.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-04",
@@ -34,7 +58,16 @@
   "rokuyo": "先勝",
   "kanshi": "辛亥",
   "kyureki": "8月24日",
-  "kichijitsu": []
+  "kichijitsu": [
+   "大明日"
+  ],
+  "kyojitsu": [],
+  "moon": {
+   "age": 23.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-05",
@@ -42,7 +75,16 @@
   "rokuyo": "友引",
   "kanshi": "壬子",
   "kyureki": "8月25日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "八専"
+  ],
+  "moon": {
+   "age": 24.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-06",
@@ -50,7 +92,16 @@
   "rokuyo": "先負",
   "kanshi": "癸丑",
   "kyureki": "8月26日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "不成就日"
+  ],
+  "moon": {
+   "age": 25.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-07",
@@ -60,7 +111,17 @@
   "kyureki": "8月27日",
   "kichijitsu": [
    "寅の日"
-  ]
+  ],
+  "kyojitsu": [
+   "三隣亡",
+   "八専"
+  ],
+  "moon": {
+   "age": 26.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-08",
@@ -70,7 +131,16 @@
   "kyureki": "8月28日",
   "kichijitsu": [
    "大安"
-  ]
+  ],
+  "kyojitsu": [
+   "八専"
+  ],
+  "moon": {
+   "age": 27.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": "寒露"
  },
  {
   "date": "2026-10-09",
@@ -78,7 +148,16 @@
   "rokuyo": "赤口",
   "kanshi": "丙辰",
   "kyureki": "8月29日",
-  "kichijitsu": []
+  "kichijitsu": [
+   "大明日"
+  ],
+  "kyojitsu": [],
+  "moon": {
+   "age": 28.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-10",
@@ -88,7 +167,16 @@
   "kyureki": "8月30日",
   "kichijitsu": [
    "巳の日"
-  ]
+  ],
+  "kyojitsu": [
+   "八専"
+  ],
+  "moon": {
+   "age": 29.0,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-11",
@@ -97,8 +185,19 @@
   "kanshi": "戊午",
   "kyureki": "9月1日",
   "kichijitsu": [
-   "一粒万倍日"
-  ]
+   "一粒万倍日",
+   "大明日"
+  ],
+  "kyojitsu": [
+   "不成就日",
+   "三隣亡"
+  ],
+  "moon": {
+   "age": 0.5,
+   "event": "新月"
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-12",
@@ -106,7 +205,18 @@
   "rokuyo": "仏滅",
   "kanshi": "己未",
   "kyureki": "9月2日",
-  "kichijitsu": []
+  "kichijitsu": [
+   "大明日"
+  ],
+  "kyojitsu": [
+   "八専"
+  ],
+  "moon": {
+   "age": 1.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-13",
@@ -115,8 +225,18 @@
   "kanshi": "庚申",
   "kyureki": "9月3日",
   "kichijitsu": [
-   "大安"
-  ]
+   "大安",
+   "大明日"
+  ],
+  "kyojitsu": [
+   "八専"
+  ],
+  "moon": {
+   "age": 2.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-14",
@@ -125,8 +245,18 @@
   "kanshi": "辛酉",
   "kyureki": "9月4日",
   "kichijitsu": [
-   "一粒万倍日"
-  ]
+   "一粒万倍日",
+   "大明日"
+  ],
+  "kyojitsu": [
+   "八専"
+  ],
+  "moon": {
+   "age": 3.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-15",
@@ -134,7 +264,14 @@
   "rokuyo": "先勝",
   "kanshi": "壬戌",
   "kyureki": "9月5日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [],
+  "moon": {
+   "age": 4.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-16",
@@ -142,7 +279,16 @@
   "rokuyo": "友引",
   "kanshi": "癸亥",
   "kyureki": "9月6日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "八専"
+  ],
+  "moon": {
+   "age": 5.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-17",
@@ -150,7 +296,16 @@
   "rokuyo": "先負",
   "kanshi": "甲子",
   "kyureki": "9月7日",
-  "kichijitsu": []
+  "kichijitsu": [
+   "甲子の日"
+  ],
+  "kyojitsu": [],
+  "moon": {
+   "age": 6.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-18",
@@ -158,7 +313,14 @@
   "rokuyo": "仏滅",
   "kanshi": "乙丑",
   "kyureki": "9月8日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [],
+  "moon": {
+   "age": 7.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-19",
@@ -169,7 +331,16 @@
   "kichijitsu": [
    "寅の日",
    "大安"
-  ]
+  ],
+  "kyojitsu": [
+   "不成就日"
+  ],
+  "moon": {
+   "age": 8.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-20",
@@ -177,7 +348,16 @@
   "rokuyo": "赤口",
   "kanshi": "丁卯",
   "kyureki": "9月10日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 9.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-21",
@@ -185,7 +365,16 @@
   "rokuyo": "先勝",
   "kanshi": "戊辰",
   "kyureki": "9月11日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 10.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-22",
@@ -194,8 +383,18 @@
   "kanshi": "己巳",
   "kyureki": "9月12日",
   "kichijitsu": [
-   "己巳の日"
-  ]
+   "己巳の日",
+   "大明日"
+  ],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 11.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": null
  },
  {
   "date": "2026-10-23",
@@ -204,8 +403,19 @@
   "kanshi": "庚午",
   "kyureki": "9月13日",
   "kichijitsu": [
-   "一粒万倍日"
-  ]
+   "一粒万倍日",
+   "大明日"
+  ],
+  "kyojitsu": [
+   "三隣亡",
+   "土用"
+  ],
+  "moon": {
+   "age": 12.5,
+   "event": null
+  },
+  "mercury_retrograde": false,
+  "sekki": "霜降"
  },
  {
   "date": "2026-10-24",
@@ -213,7 +423,18 @@
   "rokuyo": "仏滅",
   "kanshi": "辛未",
   "kyureki": "9月14日",
-  "kichijitsu": []
+  "kichijitsu": [
+   "大明日"
+  ],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 13.5,
+   "event": null
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  },
  {
   "date": "2026-10-25",
@@ -222,8 +443,18 @@
   "kanshi": "壬申",
   "kyureki": "9月15日",
   "kichijitsu": [
-   "大安"
-  ]
+   "大安",
+   "大明日"
+  ],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 14.5,
+   "event": null
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  },
  {
   "date": "2026-10-26",
@@ -232,8 +463,18 @@
   "kanshi": "癸酉",
   "kyureki": "9月16日",
   "kichijitsu": [
-   "一粒万倍日"
-  ]
+   "一粒万倍日",
+   "大明日"
+  ],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 15.5,
+   "event": "満月"
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  },
  {
   "date": "2026-10-27",
@@ -241,7 +482,17 @@
   "rokuyo": "先勝",
   "kanshi": "甲戌",
   "kyureki": "9月17日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "不成就日",
+   "土用"
+  ],
+  "moon": {
+   "age": 16.5,
+   "event": null
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  },
  {
   "date": "2026-10-28",
@@ -249,7 +500,16 @@
   "rokuyo": "友引",
   "kanshi": "乙亥",
   "kyureki": "9月18日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 17.5,
+   "event": null
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  },
  {
   "date": "2026-10-29",
@@ -257,7 +517,16 @@
   "rokuyo": "先負",
   "kanshi": "丙子",
   "kyureki": "9月19日",
-  "kichijitsu": []
+  "kichijitsu": [],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 18.5,
+   "event": null
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  },
  {
   "date": "2026-10-30",
@@ -265,7 +534,18 @@
   "rokuyo": "仏滅",
   "kanshi": "丁丑",
   "kyureki": "9月20日",
-  "kichijitsu": []
+  "kichijitsu": [
+   "大明日"
+  ],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 19.5,
+   "event": null
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  },
  {
   "date": "2026-10-31",
@@ -276,6 +556,15 @@
   "kichijitsu": [
    "寅の日",
    "大安"
-  ]
+  ],
+  "kyojitsu": [
+   "土用"
+  ],
+  "moon": {
+   "age": 20.5,
+   "event": null
+  },
+  "mercury_retrograde": true,
+  "sekki": null
  }
 ]
