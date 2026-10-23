@@ -242,6 +242,8 @@ def main() -> None:
     DOCS.mkdir(exist_ok=True)
     (DOCS / "index.html").write_text(render(today, data), encoding="utf-8")
     shutil.copy(ROOT / "templates" / "style.css", DOCS / "style.css")
+    for icon in ("favicon.svg", "apple-touch-icon.png"):  # サイトのアイコン
+        shutil.copy(ROOT / "templates" / icon, DOCS / icon)
     month = koyomi.month_days(today.year, today.month)
     (DOCS / "koyomi.json").write_text(json.dumps(month, ensure_ascii=False, indent=1), encoding="utf-8")
     (DOCS / ".nojekyll").write_text("", encoding="utf-8")
